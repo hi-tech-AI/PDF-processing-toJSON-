@@ -2,8 +2,6 @@ import os
 import json
 import camelot
 import PyPDF2
-import re
-import pandas as pd
 
 OUTPUT_FILE = "output.json"
 os.chdir(os.path.dirname(os.path.abspath(__file__)))

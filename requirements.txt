@@ -1,0 +1,5 @@
+os
+json
+camelot-py[cv]
+PyPDF2==2.11.1
+pandas
