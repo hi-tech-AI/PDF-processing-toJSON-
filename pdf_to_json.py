@@ -35,7 +35,6 @@ def convert_to_json(dataframe):
     return parsed_data
 
 if __name__ == "__main__":
-    # files = ['new-2.pdf']
     files = ['old-1.pdf', 'old-2.pdf', 'old-3.pdf']
     for file in files:
         file_data = get_data(file)
