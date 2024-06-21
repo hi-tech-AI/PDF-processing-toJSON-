@@ -12,7 +12,7 @@ def get_data(filepath):
     print(f"{filepath} => Total tables extracted:", tables.n)
 
     for table in tables:
-        table = clean_table_plan(table.df)
+        table = clean_table(table.df)
         if all_data is None:
             all_data = table
         else:
@@ -44,7 +44,7 @@ def split_pdf(file_path, output_prefix):
     print("Separated PDF file")
     return output_list
 
-def clean_table_plan(dataframe):
+def clean_table(dataframe):
     dataframe = dataframe.loc[~dataframe[0].str.contains(r"\(Blanks\)|Displaying", na=False)]
     dataframe = dataframe.apply(lambda column: column.apply(lambda x: x.replace("\n", " ") if isinstance(x, str) else x), axis=1)
     dataframe.columns = dataframe.iloc[0].to_list()

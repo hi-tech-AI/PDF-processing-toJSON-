@@ -14,7 +14,7 @@ def get_data(filepath):
     print(f"{filepath} => Total tables extracted:", tables.n)
 
     for table in tables:
-        table = clean_table_plan(table.df)
+        table = clean_table(table.df)
         if all_data is None:
             all_data = table
         else:
@@ -46,7 +46,7 @@ def split_pdf(file_path, output_prefix):
     print("Separated PDF file")
     return output_list
 
-def clean_table_plan(dataframe):
+def clean_table(dataframe):
     patterns = [r"\(Blanks\)|Displaying", "Fabric", "Trim", "Thread", "Labels"]
     df_list = dataframe.values.tolist()
     cleaned_rows = []

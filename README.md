@@ -15,7 +15,7 @@ Before you begin, ensure you have met the following requirements:
 
 2. Install the required Python packages using `pip`:
     ```sh
-    pip install camelot-py[cv] PyPDF2 pandas
+    pip install -r requirements.txt
     ```
 
 ## Usage
@@ -24,7 +24,7 @@ Before you begin, ensure you have met the following requirements:
 
 2. Run the script:
     ```sh
-    python script_name.py
+    python pdf_to_json.py
     ```
 
 3. Input the name of the PDF file when prompted (e.g., `new-sample.pdf`).
@@ -43,7 +43,7 @@ The `get_data` function reads the tables from each PDF part using Camelot, clean
 
 ### Cleaning Table Data
 
-The `clean_table_plan` function performs the following operations on the extracted tables:
+The `clean_table` function performs the following operations on the extracted tables:
 - Removes rows that contain specific unwanted patterns.
 - Replaces newline characters within cells.
 - Sets the first row as the header.
