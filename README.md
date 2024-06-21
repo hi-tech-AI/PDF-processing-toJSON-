@@ -78,7 +78,3 @@ The `get_final_json` function organizes the extracted data based on a specified 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to modify this README as per your project's requirements. If you have any questions or need further assistance, please let me know!
