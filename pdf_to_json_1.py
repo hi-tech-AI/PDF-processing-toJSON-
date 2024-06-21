@@ -47,10 +47,16 @@ def split_pdf(file_path, output_prefix):
     return output_list
 
 def clean_table_plan(dataframe):
-    dataframe = dataframe.loc[~dataframe[0].str.contains(r"\(Blanks\)|Displaying", na=False)]
-    dataframe = dataframe.apply(lambda column: column.apply(lambda x: x.replace("\n", " ") if isinstance(x, str) else x), axis=1)
-    dataframe.columns = dataframe.iloc[0].to_list()
-    return dataframe.loc[1:]
+    patterns = [r"\(Blanks\)|Displaying", "Fabric", "Trim", "Thread", "Labels"]
+    df_list = dataframe.values.tolist()
+    cleaned_rows = []
+    for row in df_list:
+        if all(not re.search(pattern, str(row[0])) for pattern in patterns):
+            cleaned_rows.append(row)
+    cleaned_df = pd.DataFrame(cleaned_rows)
+    cleaned_df = cleaned_df.apply(lambda column: column.apply(lambda x: x.replace("\n", " ") if isinstance(x, str) else x), axis=1)
+    cleaned_df.columns = cleaned_df.iloc[0].to_list()
+    return cleaned_df.loc[1:]
 
 def convert_to_json(dataframe):
     parsed_data = []
