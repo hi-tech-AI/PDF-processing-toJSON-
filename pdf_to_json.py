@@ -2,9 +2,6 @@ import os
 import json
 import camelot
 
-OUTPUT_FILE = "output.json"
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
 def get_data(filepath):
     tables = camelot.read_pdf("./test_inputs/" + filepath, pages="all")
     all_data = None
