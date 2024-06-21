@@ -38,6 +38,6 @@ if __name__ == "__main__":
     files = ['old-1.pdf', 'old-2.pdf', 'old-3.pdf']
     for file in files:
         file_data = get_data(file)
-        output_filename = f"output-{file.replace('.pdf', '.json')}"
+        output_filename = f"./test_outputs/output-{file.replace('.pdf', '.json')}"
         with open(output_filename, "w") as f:
             json.dump(file_data, f, indent=4)
